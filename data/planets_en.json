@@ -64,5 +64,20 @@
         "image": "asteroid_belt.png",
         "threejs": { "orbitRadius": 60, "speed": 0.01, "numAsteroids": 200, "minSize": 0.1, "maxSize": 0.5, "color": "0x888888" },
         "discoverer" : "No specific discoverer"
+    },
+
+    {
+        "name": "Kuiper Belt",
+        "description": "A region beyond Neptune's orbit, containing many small icy bodies, remnants from the Solar System's formation. It is similar to the asteroid belt but much larger and more massive.",
+        "image": "kuiper_belt.png",  
+        "threejs": {
+            "orbitRadius": 150,  
+            "speed": 0.002,      
+            "numAsteroids": 300,  
+            "minSize": 0.2,      
+            "maxSize": 0.8,
+            "color": "0x778899"  
+        },
+        "discoverer": "No specific discoverer (predicted, then observed)"
     }
 ]

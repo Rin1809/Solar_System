@@ -86,5 +86,20 @@
             "color": "0x888888"
         },
          "discoverer" : "特定の発見者はいない"
+    },
+    {
+        "name": "カイパーベルト",
+        "description": "海王星の軌道より外側にある領域で、太陽系の形成からの残骸である多くの小さな氷の天体を含んでいます。小惑星帯に似ていますが、はるかに大きく、質量も大きいです。",
+        "image": "kuiper_belt.png",
+        "threejs": {
+            "orbitRadius": 150,
+            "speed": 0.002,
+            "numAsteroids": 300,
+            "minSize": 0.2,
+            "maxSize": 0.8,
+            "color": "0x778899"
+        },
+        "discoverer": "特定の発見者はいない（予測され、その後観測された）"
     }
+
 ]

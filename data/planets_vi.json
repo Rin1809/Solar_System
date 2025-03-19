@@ -228,5 +228,20 @@
             "color": "0x888888"
         },
         "discoverer" : "Không có người khám phá cụ thể"
+    },
+    {
+        "name": "Vành đai Kuiper",
+        "description": "Một khu vực nằm ngoài quỹ đạo của Sao Hải Vương, chứa nhiều thiên thể băng giá nhỏ, tàn dư từ quá trình hình thành Hệ Mặt Trời. Nó tương tự như vành đai tiểu hành tinh nhưng lớn hơn và nặng hơn nhiều.",
+        "image": "kuiper_belt.png",
+        "threejs": {
+            "orbitRadius": 150,
+            "speed": 0.002,
+            "numAsteroids": 300,
+            "minSize": 0.2,
+            "maxSize": 0.8,
+            "color": "0x778899"
+        },
+        "discoverer": "Không có người khám phá cụ thể (được dự đoán, sau đó quan sát)"
     }
+    
 ]

@@ -158,15 +158,15 @@
         #dateDisplay {
             position: absolute;
             top:12px;
-            left: 50%;     
-            transform: translateX(-50%); 
+            left: 50%;
+            transform: translateX(-50%);
             color: #fff;
             font-size: 18px;
             background-color: rgba(51, 51, 51, 0.212);
             padding: 8px 12px;
             border-radius: 5px;
             z-index: 10;
-            text-align: center; 
+            text-align: center;
         }
         #tooltip {
             position: absolute;
@@ -222,12 +222,12 @@
         #menuButton {
             position: absolute;
             top: 10px;
-            right: 10px; 
+            right: 10px;
             cursor: pointer;
             color: #fff;
             font-size: 24px;
-            z-index: 10; 
-            display: none; 
+            z-index: 10;
+            display: none;
         }
 
         /* Nút chuyển đổi ngôn ngữ */
@@ -263,16 +263,16 @@
          /* Cho màn hình nhỏ hơn (ví dụ: điện thoại - chưa được) */
         @media (max-width: 768px) {
             #sidebar {
-                width: 80%; 
+                width: 80%;
                 transform: translateX(100%);
                 padding: 10px;
             }
             #sidebar.active {
-               transform: translateX(0); 
+               transform: translateX(0);
             }
 
-             #speedControlContainer { 
-                bottom: 10px; 
+             #speedControlContainer {
+                bottom: 10px;
             }
             #speedSlider{
                 width: 200px;
@@ -288,11 +288,11 @@
             }
 
             #closeSidebar{
-                display: none; 
+                display: none;
             }
 
              #menuButton {
-                display: block; 
+                display: block;
             }
         }
 
@@ -393,8 +393,8 @@
             return sprite;
         }
 
-        function addLabel(object, text, offset, fontSize = 12) { 
-            const label = createLabelSprite(text, fontSize); 
+        function addLabel(object, text, offset, fontSize = 12) {
+            const label = createLabelSprite(text, fontSize);
             object.add(label);
             label.position.set(0, offset, 0);
         }
@@ -405,9 +405,9 @@
         const zoomSpeedFactor = 0.1;
 
         // Biến cho animation của con lăn chuột
-        let targetCameraZ = 50;  
+        let targetCameraZ = 50;
         const zoomAnimationSpeed = 0.1; // Tốc độ animation (càng nhỏ càng mượt)
-        let moonWorldPosition = new THREE.Vector3(); 
+        let moonWorldPosition = new THREE.Vector3();
 
         // Thêm biến để lưu ngôn ngữ hiện tại
         let currentLanguage = 'vi';
@@ -454,7 +454,7 @@
 
        // Hàm cập nhật nội dung sidebar
         function updateSidebarContent(info) {
-            const lang = currentLanguage; 
+            const lang = currentLanguage;
              if(!info) return;
 
             document.getElementById('planetName').textContent = info.name;
@@ -557,6 +557,20 @@
                           pData.asteroidBelt.remove(pData.asteroidBelt.children[0]);
                         }
                 }
+
+                 if (pData.kuiperBelt) {
+                    scene.remove(pData.kuiperBelt);
+                    // Xóa các tiểu hành tinh và hình xuyến (gas)
+                    while (pData.kuiperBelt.children.length > 0) {
+                        const child = pData.kuiperBelt.children[0];
+
+                        // Kiểm tra nếu child là hình xuyến, thì xóa geometry và material.
+                        if(child.geometry) child.geometry.dispose();
+                        if(child.material) child.material.dispose();
+
+                        pData.kuiperBelt.remove(child);
+                    }
+                 }
                 // Loại bỏ các orbit
               if (pData.orbit) {
                   if(pData.parent){
@@ -580,8 +594,8 @@
                     });
                 }
             });
-                planets = []; 
-                planetsData = [];  
+                planets = [];
+                planetsData = [];
 
 
             const response = await fetch(`data/planets_${lang}.json`);
@@ -590,7 +604,7 @@
                 planetsData.forEach(pData => {
                     // Tạo hành tinh/mặt trăng
                    let planet;
-                    if(pData.name !== "Asteroid Belt" && pData.name !== "Vành đai tiểu hành tinh" && pData.name !== "小惑星帯"){
+                    if(pData.name !== "Asteroid Belt" && pData.name !== "Vành đai tiểu hành tinh" && pData.name !== "小惑星帯" && pData.name !== "Kuiper Belt" && pData.name !== "Vành đai Kuiper" && pData.name !== "カイパーベルト"){
                         const planetGeometry = new THREE.SphereGeometry(pData.threejs.size, 32, 32);
                         const planetMaterial = new THREE.MeshBasicMaterial({ color: parseInt(pData.threejs.color) });
                         planet = new THREE.Mesh(planetGeometry, planetMaterial);
@@ -612,7 +626,7 @@
                         }
 
                     }else {
-                         if(pData.name !== "Asteroid Belt" && pData.name !== "Vành đai tiểu hành tinh" && pData.name !== "小惑星帯"){
+                         if(pData.name !== "Asteroid Belt" && pData.name !== "Vành đai tiểu hành tinh" && pData.name !== "小惑星帯"  && pData.name !== "Kuiper Belt" && pData.name !== "Vành đai Kuiper" && pData.name !== "カイパーベルト" ){
                              scene.add(planet);
                          }
                         pData.planet = planet;
@@ -620,34 +634,75 @@
 
                     if (pData.name === "Asteroid Belt" || pData.name === "Vành đai tiểu hành tinh" ||  pData.name === "小惑星帯") {
                        // Tạo vành đai tiểu hành tinh
-                        const asteroidBelt = new THREE.Object3D(); 
+                        const asteroidBelt = new THREE.Object3D();
                         for (let i = 0; i < pData.threejs.numAsteroids; i++) {
                             const size = Math.random() * (pData.threejs.maxSize - pData.threejs.minSize) + pData.threejs.minSize;
-                            const asteroidGeometry = new THREE.SphereGeometry(size, 8, 8); 
+                            const asteroidGeometry = new THREE.SphereGeometry(size, 8, 8);
                             const asteroidMaterial = new THREE.MeshBasicMaterial({ color: parseInt(pData.threejs.color) });
                             const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
 
                             // Vị trí ngẫu nhiên trong vành đai
                             const angle = Math.random() * Math.PI * 2;
-                            const radius = pData.threejs.orbitRadius + (Math.random() - 0.5) * 10; // Rải rác xung quanh bán kính
+                            const radius = pData.threejs.orbitRadius + (Math.random() - 0.5) * 10; 
                             asteroid.position.x = Math.cos(angle) * radius;
                             asteroid.position.z = Math.sin(angle) * radius;
-                            asteroid.position.y = (Math.random() - 0.5) * 5; 
+                            asteroid.position.y = (Math.random() - 0.5) * 5;
 
-                            asteroidBelt.add(asteroid); // Thêm tiểu hành tinh vào vành đai
+                            asteroidBelt.add(asteroid); 
                         }
-                          asteroidBelt.userData = { 
+                          asteroidBelt.userData = {
                             info: pData
                         };
 
                          scene.add(asteroidBelt);
-                        pData.asteroidBelt = asteroidBelt; 
+                        pData.asteroidBelt = asteroidBelt;
                          addLabel(asteroidBelt, pData.name, 0, 36);
 
 
-                    } else if (pData.planet) {
+                    }
+                    else if (pData.name === "Kuiper Belt" || pData.name === "Vành đai Kuiper" || pData.name === "カイパーベルト") {
+                    const kuiperBelt = new THREE.Object3D();
+                    for (let i = 0; i < pData.threejs.numAsteroids; i++) {
+                        const size = Math.random() * (pData.threejs.maxSize - pData.threejs.minSize) + pData.threejs.minSize;
+                        const asteroidGeometry = new THREE.SphereGeometry(size, 8, 8);
+                        const asteroidMaterial = new THREE.MeshBasicMaterial({ color: parseInt(pData.threejs.color) });
+                        const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
+
+                        // Vị trí ngẫu nhiên trong vành đai Kuiper
+                        const angle = Math.random() * Math.PI * 2;
+                        const radius = pData.threejs.orbitRadius + (Math.random() - 0.5) * 20; // Rải rác, có thể điều chỉnh độ rộng
+                        asteroid.position.x = Math.cos(angle) * radius;
+                        asteroid.position.z = Math.sin(angle) * radius;
+                        asteroid.position.y = (Math.random() - 0.5) * 8; 
+
+                        kuiperBelt.add(asteroid);
+                    }
+                    kuiperBelt.userData = {
+                        info: pData
+                    };
+
+                    // Thêm hình xuyến mờ (khí gas) 
+                    const gasGeometry = new THREE.TorusGeometry(pData.threejs.orbitRadius + 10, 25, 16, 100); 
+                    const gasMaterial = new THREE.MeshBasicMaterial({
+                        color: 0xffffff, // Màu xám xanh nhạt, điều chỉnh theo ý thích
+                        transparent: true,
+                        opacity: 0.2       // Độ mờ, điều chỉnh theo ý thích
+                    });
+                    const gasTorus = new THREE.Mesh(gasGeometry, gasMaterial);
+                    gasTorus.rotation.x = Math.PI / 2;
+                    kuiperBelt.add(gasTorus); 
+
+ 
+
+                    scene.add(kuiperBelt);
+                    pData.kuiperBelt = kuiperBelt;
+                    addLabel(kuiperBelt, pData.name, 0, 42);
+
+                }
+
+                    else if (pData.planet) {
                          // Thêm label (chỉ cho hành tinh và mặt trăng, không phải vành đai)
-                         addLabel(pData.planet, pData.name, pData.threejs.size + 2); 
+                         addLabel(pData.planet, pData.name, pData.threejs.size + 2);
                          pData.planet.userData = {
                             info: pData
                         };
@@ -656,12 +711,12 @@
 
 
                     // Vẽ orbit cho cả hành tinh và mặt trăng
-                    if(pData.name !== "Asteroid Belt" && pData.name !== "Vành đai tiểu hành tinh" && pData.name !== "小惑星帯"){
+                    if(pData.name !== "Asteroid Belt" && pData.name !== "Vành đai tiểu hành tinh" && pData.name !== "小惑星帯"  && pData.name !== "Kuiper Belt" && pData.name !== "Vành đai Kuiper" && pData.name !== "カイパーベルト"){
                          const orbitGeometry = new THREE.RingGeometry(pData.threejs.orbitRadius - 0.1, pData.threejs.orbitRadius + 0.1, 128);
-                         const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x333333, side: THREE.DoubleSide });
+                         const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide }); // Màu trắng
                          const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
                          orbit.rotation.x = Math.PI / 2;
-                         pData.orbit = orbit; 
+                         pData.orbit = orbit;
 
                         // Nếu là mặt trăng, không thêm orbit vào scene chính mà thêm vào hành tinh mẹ
                         if (pData.parent) {
@@ -720,11 +775,16 @@
                  // Tạo một mảng chứa tất cả các đối tượng có thể giao cắt - Bao gồm các hành tinh và mặt trăng
                 let allObjects = [...planets];
 
-      
+
                 const asteroidBeltData = planetsData.find(p => p.name === "Asteroid Belt" || p.name === "Vành đai tiểu hành tinh" || p.name === "小惑星帯");
+                const kuiperBeltData = planetsData.find(p => p.name === "Kuiper Belt" || p.name === "Vành đai Kuiper" || p.name === "カイパーベルト"); // Thêm dòng này
                 if (asteroidBeltData && asteroidBeltData.asteroidBelt) {
                     allObjects = allObjects.concat(asteroidBeltData.asteroidBelt.children);
                 }
+                if (kuiperBeltData && kuiperBeltData.kuiperBelt) { // Thêm khối này
+                    allObjects = allObjects.concat(kuiperBeltData.kuiperBelt.children);
+                }
+
                 const intersects = raycaster.intersectObjects(allObjects);
 
                 if (intersects.length > 0) {
@@ -734,8 +794,13 @@
                     // Kiểm tra xem đối tượng có phải là một phần của vành đai tiểu hành tinh không
                      if (asteroidBeltData && asteroidBeltData.asteroidBelt && asteroidBeltData.asteroidBelt.children.includes(object)) {
                         info = asteroidBeltData;
-                    } else {
-                        info = object.userData.info; 
+                    }
+                    else if (kuiperBeltData && kuiperBeltData.kuiperBelt && kuiperBeltData.kuiperBelt.children.includes(object)) { // Thêm khối else if này
+                    info = kuiperBeltData;
+
+                }
+                     else {
+                        info = object.userData.info;
                     }
 
                     if(info){
@@ -779,9 +844,13 @@
 
             // Thêm các tiểu hành tinh vào danh sách (nếu có vành đai tiểu hành tinh)
             const asteroidBeltData = planetsData.find(p => p.name === "Asteroid Belt" || p.name === "Vành đai tiểu hành tinh" || p.name === "小惑星帯");
+            const kuiperBeltData = planetsData.find(p => p.name === "Kuiper Belt" || p.name === "Vành đai Kuiper" || p.name === "カイパーベルト");
             if (asteroidBeltData && asteroidBeltData.asteroidBelt) {
                 allObjects = allObjects.concat(asteroidBeltData.asteroidBelt.children);
             }
+             if (kuiperBeltData && kuiperBeltData.kuiperBelt) { // Thêm khối này
+                    allObjects = allObjects.concat(kuiperBeltData.kuiperBelt.children);
+                }
             const intersects = raycaster.intersectObjects(allObjects);
             if (intersects.length > 0) {
 
@@ -793,7 +862,12 @@
                      info = asteroidBeltData;
                     zoomTargetPlanet = asteroidBeltData.asteroidBelt;
 
-                } else {
+                }
+                 else if (kuiperBeltData && kuiperBeltData.kuiperBelt && kuiperBeltData.kuiperBelt.children.includes(clickedObject)) { // Thêm khối else if này
+                    info = kuiperBeltData;
+                    zoomTargetPlanet = kuiperBeltData.kuiperBelt;
+                }
+                else {
                     info = clickedObject.userData.info;
                     zoomTargetPlanet = clickedObject;
                 }
@@ -832,7 +906,7 @@
         function handleMouseUp(){
             isDragging = false;
             touchDragging = false;
-             initialPinchDistance = null; 
+             initialPinchDistance = null;
             canvas.style.cursor = 'grab';
         }
 
@@ -872,11 +946,11 @@
                         targetCameraZ = Math.max(minZoom, Math.min(maxZoom, targetCameraZ));
                     }
                         initialPinchDistance = currentDistance;
-                    return; 
+                    return;
                 } else {
-                    return; 
+                    return;
                 }
-            } else { 
+            } else {
                  if (!isDragging) return;
                  clientX = event.clientX;
                  clientY = event.clientY;
@@ -916,7 +990,7 @@
             targetCameraZ = Math.max(minZoom, Math.min(maxZoom, targetCameraZ));
         });
 
-         canvas.addEventListener('touchcancel', ()=>{ 
+         canvas.addEventListener('touchcancel', ()=>{
           touchDragging = false;
           initialPinchDistance = null;
      });
@@ -925,9 +999,9 @@
         const menuButton = document.getElementById('menuButton');
         const sidebar = document.getElementById('sidebar');
 
-        if(menuButton){ 
+        if(menuButton){
             menuButton.addEventListener('click', () => {
-                sidebar.classList.toggle('active'); 
+                sidebar.classList.toggle('active');
             });
         }
 
@@ -981,6 +1055,10 @@
                          const angle =  (Date.now() * 0.001 * p.threejs.speed * 20 * timeScale);
                           p.asteroidBelt.rotation.y = angle;
                     }
+                   else if (p.name === "Kuiper Belt" || p.name === "Vành đai Kuiper" || p.name === "カイパーベルト"){
+                       const angle =  (Date.now() * 0.001 * p.threejs.speed * 20 * timeScale);
+                        p.kuiperBelt.rotation.y = angle;
+                   }
                     else if (p.parent) {
                         // Mặt trăng: quay quanh hành tinh mẹ
                         const angle = p.threejs.speed + (Date.now() * 0.001 * p.threejs.speed * 20 * timeScale);
@@ -1007,12 +1085,12 @@
                 currentLanguage = button.dataset.lang;
                 languageButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                loadPlanets(currentLanguage);  
+                loadPlanets(currentLanguage);
 
                 // Cập nhật label của Mặt Trời (vì nó không nằm trong planetsData)
                 const sunLabel = sun.children.find(child => child instanceof THREE.Sprite);
                  if (sunLabel) {
-                    sun.remove(sunLabel); 
+                    sun.remove(sunLabel);
                 }
                 let sunLabelText = "";
                 if(currentLanguage === "vi"){
@@ -1030,8 +1108,13 @@
                     let currentInfo;
 
                     const asteroidBeltData = planetsData.find(p => p.name === "Asteroid Belt" || p.name === "Vành đai tiểu hành tinh" || p.name === "小惑星帯");
+                    const kuiperBeltData = planetsData.find(p => p.name === "Kuiper Belt" || p.name === "Vành đai Kuiper" || p.name === "カイパーベルト");
+
                       if (asteroidBeltData && asteroidBeltData.asteroidBelt && asteroidBeltData.asteroidBelt === zoomTargetPlanet) {
                         currentInfo = asteroidBeltData;
+                    }
+                    else if (kuiperBeltData && kuiperBeltData.kuiperBelt && kuiperBeltData.kuiperBelt === zoomTargetPlanet) {
+                        currentInfo = kuiperBeltData;
                     }
                     else {
                         currentInfo = zoomTargetPlanet.userData.info;
