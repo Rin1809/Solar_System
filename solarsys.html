@@ -158,15 +158,15 @@
         #dateDisplay {
             position: absolute;
             top:12px;
-            left: 50%;      /* Đặt vị trí ban đầu ở giữa chiều ngang */
-            transform: translateX(-50%); /* Dịch chuyển ngược lại 50% chiều rộng của phần tử để căn giữa chính xác */
+            left: 50%;     
+            transform: translateX(-50%); 
             color: #fff;
             font-size: 18px;
             background-color: rgba(51, 51, 51, 0.212);
             padding: 8px 12px;
             border-radius: 5px;
             z-index: 10;
-            text-align: center; /* Thêm dòng này để căn giữa chữ bên trong (tùy chọn) */
+            text-align: center; 
         }
         #tooltip {
             position: absolute;
@@ -201,7 +201,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            border-bottom: 2px solid #6688cc; /* Tạo đường gạch dưới */
+            border-bottom: 2px solid #6688cc;
             transform: translateY(-8px);
         }
 
@@ -222,12 +222,12 @@
         #menuButton {
             position: absolute;
             top: 10px;
-            right: 10px; /* Đặt ở góc trên bên phải */
+            right: 10px; 
             cursor: pointer;
             color: #fff;
             font-size: 24px;
-            z-index: 10; /* Đảm bảo nút ở trên các phần tử khác */
-            display: none; /* Ẩn trên desktop */
+            z-index: 10; 
+            display: none; 
         }
 
         /* Nút chuyển đổi ngôn ngữ */
@@ -260,22 +260,22 @@
         }
 
 
-         /* Cho màn hình nhỏ hơn (ví dụ: điện thoại) */
+         /* Cho màn hình nhỏ hơn (ví dụ: điện thoại - chưa được) */
         @media (max-width: 768px) {
             #sidebar {
-                width: 80%; /* Chiếm 80% màn hình, bạn có thể tùy chỉnh */
-                transform: translateX(100%); /* Ẩn mặc định */
+                width: 80%; 
+                transform: translateX(100%);
                 padding: 10px;
             }
             #sidebar.active {
-               transform: translateX(0); /* Hiện khi active*/
+               transform: translateX(0); 
             }
 
-             #speedControlContainer { /* Điều chỉnh vị trí speed control */
-                bottom: 10px; /* Gần cạnh dưới hơn */
+             #speedControlContainer { 
+                bottom: 10px; 
             }
             #speedSlider{
-                width: 200px; /* ngắn hơn */
+                width: 200px;
             }
 
             #dateDisplay{
@@ -288,17 +288,17 @@
             }
 
             #closeSidebar{
-                display: none; /* không cần nút đóng khi có menu button*/
+                display: none; 
             }
 
              #menuButton {
-                display: block; /* Hiện nút hamburger trên mobile */
+                display: block; 
             }
         }
 
         /* Có thể thêm các breakpoint khác cho tablet, v.v. */
         @media (max-width: 1024px) {
-          /* Điều chỉnh cho tablet (nếu cần) */
+
         }
     </style>
 </head>
@@ -393,8 +393,8 @@
             return sprite;
         }
 
-        function addLabel(object, text, offset, fontSize = 12) { // Thêm fontSize
-            const label = createLabelSprite(text, fontSize); // Truyền fontSize vào
+        function addLabel(object, text, offset, fontSize = 12) { 
+            const label = createLabelSprite(text, fontSize); 
             object.add(label);
             label.position.set(0, offset, 0);
         }
@@ -405,14 +405,13 @@
         const zoomSpeedFactor = 0.1;
 
         // Biến cho animation của con lăn chuột
-        let targetCameraZ = 50;  // Vị trí Z mục tiêu của camera
+        let targetCameraZ = 50;  
         const zoomAnimationSpeed = 0.1; // Tốc độ animation (càng nhỏ càng mượt)
-        let moonWorldPosition = new THREE.Vector3(); // Thêm biến để lưu vị trí toàn cục của mặt trăng
+        let moonWorldPosition = new THREE.Vector3(); 
 
         // Thêm biến để lưu ngôn ngữ hiện tại
         let currentLanguage = 'vi';
 
-        // Thêm đối tượng chứa các chuỗi dịch
         const translations = {
           vi: {
             radius: "Bán kính:",
@@ -455,7 +454,7 @@
 
        // Hàm cập nhật nội dung sidebar
         function updateSidebarContent(info) {
-            const lang = currentLanguage; // Lấy ngôn ngữ hiện tại
+            const lang = currentLanguage; 
              if(!info) return;
 
             document.getElementById('planetName').textContent = info.name;
@@ -540,7 +539,7 @@
                       }
 
                 } else {
-                  scene.remove(pData.planet);  // Xóa khỏi scene chính
+                  scene.remove(pData.planet);
                 }
                 if (pData.planet.children) {
                    // Xóa các nhãn (label) cũ
@@ -581,8 +580,8 @@
                     });
                 }
             });
-                planets = []; // Reset mảng planets
-                planetsData = [];  // Reset mảng planetsData
+                planets = []; 
+                planetsData = [];  
 
 
             const response = await fetch(`data/planets_${lang}.json`);
@@ -621,10 +620,10 @@
 
                     if (pData.name === "Asteroid Belt" || pData.name === "Vành đai tiểu hành tinh" ||  pData.name === "小惑星帯") {
                        // Tạo vành đai tiểu hành tinh
-                        const asteroidBelt = new THREE.Object3D(); // Tạo một đối tượng 3D để chứa các tiểu hành tinh
+                        const asteroidBelt = new THREE.Object3D(); 
                         for (let i = 0; i < pData.threejs.numAsteroids; i++) {
                             const size = Math.random() * (pData.threejs.maxSize - pData.threejs.minSize) + pData.threejs.minSize;
-                            const asteroidGeometry = new THREE.SphereGeometry(size, 8, 8); // Ít đa giác cho hiệu suất
+                            const asteroidGeometry = new THREE.SphereGeometry(size, 8, 8); 
                             const asteroidMaterial = new THREE.MeshBasicMaterial({ color: parseInt(pData.threejs.color) });
                             const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
 
@@ -633,22 +632,22 @@
                             const radius = pData.threejs.orbitRadius + (Math.random() - 0.5) * 10; // Rải rác xung quanh bán kính
                             asteroid.position.x = Math.cos(angle) * radius;
                             asteroid.position.z = Math.sin(angle) * radius;
-                            asteroid.position.y = (Math.random() - 0.5) * 5; // Thêm một chút biến thể theo chiều dọc
+                            asteroid.position.y = (Math.random() - 0.5) * 5; 
 
                             asteroidBelt.add(asteroid); // Thêm tiểu hành tinh vào vành đai
                         }
-                          asteroidBelt.userData = { //thêm userData
+                          asteroidBelt.userData = { 
                             info: pData
                         };
 
                          scene.add(asteroidBelt);
-                        pData.asteroidBelt = asteroidBelt; // Lưu trữ để dễ truy cập sau này (ví dụ: xoay)
-                         addLabel(asteroidBelt, pData.name, 0, 36); // Label lớn và thêm vào asteroidBelt
+                        pData.asteroidBelt = asteroidBelt; 
+                         addLabel(asteroidBelt, pData.name, 0, 36);
 
 
                     } else if (pData.planet) {
                          // Thêm label (chỉ cho hành tinh và mặt trăng, không phải vành đai)
-                         addLabel(pData.planet, pData.name, pData.threejs.size + 2); // Label bình thường cho hành tinh/mặt trăng
+                         addLabel(pData.planet, pData.name, pData.threejs.size + 2); 
                          pData.planet.userData = {
                             info: pData
                         };
@@ -662,7 +661,7 @@
                          const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x333333, side: THREE.DoubleSide });
                          const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
                          orbit.rotation.x = Math.PI / 2;
-                         pData.orbit = orbit; // Lưu orbit
+                         pData.orbit = orbit; 
 
                         // Nếu là mặt trăng, không thêm orbit vào scene chính mà thêm vào hành tinh mẹ
                         if (pData.parent) {
@@ -718,10 +717,10 @@
                 mouse.y = -(clientY / window.innerHeight) * 2 + 1;
                 raycaster.setFromCamera(mouse, camera);
 
-                 // Tạo một mảng chứa tất cả các đối tượng có thể giao cắt
-                let allObjects = [...planets]; // Bao gồm các hành tinh và mặt trăng
+                 // Tạo một mảng chứa tất cả các đối tượng có thể giao cắt - Bao gồm các hành tinh và mặt trăng
+                let allObjects = [...planets];
 
-                // Thêm các tiểu hành tinh vào danh sách (nếu có vành đai tiểu hành tinh)
+      
                 const asteroidBeltData = planetsData.find(p => p.name === "Asteroid Belt" || p.name === "Vành đai tiểu hành tinh" || p.name === "小惑星帯");
                 if (asteroidBeltData && asteroidBeltData.asteroidBelt) {
                     allObjects = allObjects.concat(asteroidBeltData.asteroidBelt.children);
@@ -734,10 +733,9 @@
 
                     // Kiểm tra xem đối tượng có phải là một phần của vành đai tiểu hành tinh không
                      if (asteroidBeltData && asteroidBeltData.asteroidBelt && asteroidBeltData.asteroidBelt.children.includes(object)) {
-                        info = asteroidBeltData;  //Sử dụng info vành đai tiểu hành tinh
+                        info = asteroidBeltData;
                     } else {
-                        info = object.userData.info; // Lấy thông tin từ userData
-
+                        info = object.userData.info; 
                     }
 
                     if(info){
@@ -777,7 +775,7 @@
             mouse.y = -(clientY / window.innerHeight) * 2 + 1;
             raycaster.setFromCamera(mouse, camera);
              // Tạo một mảng chứa tất cả các đối tượng có thể giao cắt
-            let allObjects = [...planets]; // Bao gồm các hành tinh và mặt trăng
+            let allObjects = [...planets];
 
             // Thêm các tiểu hành tinh vào danh sách (nếu có vành đai tiểu hành tinh)
             const asteroidBeltData = planetsData.find(p => p.name === "Asteroid Belt" || p.name === "Vành đai tiểu hành tinh" || p.name === "小惑星帯");
@@ -834,7 +832,7 @@
         function handleMouseUp(){
             isDragging = false;
             touchDragging = false;
-             initialPinchDistance = null; // Reset lại khoảng cách
+             initialPinchDistance = null; 
             canvas.style.cursor = 'grab';
         }
 
@@ -873,12 +871,12 @@
                         targetCameraZ -= deltaDistance * 0.2;
                         targetCameraZ = Math.max(minZoom, Math.min(maxZoom, targetCameraZ));
                     }
-                        initialPinchDistance = currentDistance; // Cập nhật lại khoảng cách
-                    return; // Không xử lý di chuyển camera khi đang zoom 2 ngón
+                        initialPinchDistance = currentDistance;
+                    return; 
                 } else {
-                    return; // Không làm gì nếu không có touch nào
+                    return; 
                 }
-            } else { // Nếu không phải sự kiện cảm ứng
+            } else { 
                  if (!isDragging) return;
                  clientX = event.clientX;
                  clientY = event.clientY;
@@ -918,18 +916,18 @@
             targetCameraZ = Math.max(minZoom, Math.min(maxZoom, targetCameraZ));
         });
 
-         canvas.addEventListener('touchcancel', ()=>{ // thêm sự kiện touchcancel
+         canvas.addEventListener('touchcancel', ()=>{ 
           touchDragging = false;
-          initialPinchDistance = null; // reset
+          initialPinchDistance = null;
      });
 
         // Thêm sự kiện cho nút hamburger
         const menuButton = document.getElementById('menuButton');
         const sidebar = document.getElementById('sidebar');
 
-        if(menuButton){ // kiểm tra phần tử tồn tại
+        if(menuButton){ 
             menuButton.addEventListener('click', () => {
-                sidebar.classList.toggle('active'); // Thêm/bỏ class 'active' để hiện/ẩn
+                sidebar.classList.toggle('active'); 
             });
         }
 
@@ -1009,12 +1007,12 @@
                 currentLanguage = button.dataset.lang;
                 languageButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                loadPlanets(currentLanguage);  // Tải lại hành tinh với ngôn ngữ mới
+                loadPlanets(currentLanguage);  
 
                 // Cập nhật label của Mặt Trời (vì nó không nằm trong planetsData)
                 const sunLabel = sun.children.find(child => child instanceof THREE.Sprite);
                  if (sunLabel) {
-                    sun.remove(sunLabel); // Xóa label cũ
+                    sun.remove(sunLabel); 
                 }
                 let sunLabelText = "";
                 if(currentLanguage === "vi"){
