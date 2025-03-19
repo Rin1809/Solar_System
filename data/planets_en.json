@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Mercury", "radius": "2,439.7 km", "period": "88 days", "distance": "0.39 AU", "moons": "0", "rings": "No",
+        "description": "The smallest and closest planet to the Sun. Mercury's surface is heavily cratered, similar to the Moon. It has no significant atmosphere to retain heat, so its surface temperature varies greatly between day and night.",
+        "image": "mercury.png", "threejs": { "size": 0.8, "color": "0xaaaaaa", "orbitRadius": 20, "speed": 0.04 },
+        "gravity": "3.7 m/s²", "mass": "3.3011 × 10^23 kg", "temperature": { "min": "-173 °C", "max": "427 °C" },
+        "atmosphere": "Negligible", "discoverer": "Unknown (known since ancient times)"
+    },
+    {
+        "name": "Venus", "radius": "6,051.8 km", "period": "225 days", "distance": "0.72 AU", "moons": "0", "rings": "No",
+        "description": "The hottest planet with a dense atmosphere, mainly carbon dioxide, creating an extreme greenhouse effect. Venus's surface is obscured by thick clouds of sulfuric acid.",
+        "image": "venus.png", "threejs": { "size": 1.2, "color": "0xbbbbbb", "orbitRadius": 30, "speed": 0.03 },
+        "gravity": "8.87 m/s²", "mass": "4.8675 × 10^24 kg", "temperature": { "average": "464 °C" },
+        "atmosphere": "96.5% CO₂, 3.5% N₂", "discoverer": "Unknown (known since ancient times)"
+    },
+    {
+        "name": "Earth", "radius": "6,371 km", "period": "365.25 days", "distance": "1 AU", "moons": "1", "rings": "No",
+        "description": "Our planet and the only place in the Solar System known to harbor life. Earth has a diverse atmosphere, liquid water oceans, and active tectonic plates.",
+        "image": "earth.png", "threejs": { "size": 1.4, "color": "0x3366ff", "orbitRadius": 40, "speed": 0.02 },
+        "gravity": "9.81 m/s²", "mass": "5.972 × 10^24 kg",
+        "temperature": { "min": "-89.2 °C", "max": "56.7 °C", "average": "15 °C" }, "atmosphere": "78% N₂, 21% O₂, 1% Other", "discoverer": "Not discovered, home to humanity"
+    },
+    {
+        "name": "Mars", "radius": "3,389.5 km", "period": "687 days", "distance": "1.52 AU", "moons": "2", "rings": "No",
+        "description": "Known as the 'Red Planet' due to iron oxide on its surface. Mars has diverse terrain, including volcanoes, valleys, deserts, and polar ice caps. There is evidence that Mars once had liquid water.",
+        "image": "mars.png", "threejs": { "size": 1.0, "color": "0xcc6600", "orbitRadius": 50, "speed": 0.015 },
+        "gravity": "3.71 m/s²", "mass": "6.4171 × 10^23 kg", "temperature": { "min": "-140 °C", "max": "20 °C", "average": "-63 °C" }, "atmosphere": "95% CO₂, 3% N₂, 1.6% Ar", "discoverer": "Unknown (known since ancient times)"
+    },
+   {
+        "name": "Jupiter", "radius": "69,911 km", "period": "11.86 years", "distance": "5.20 AU", "moons": "79+", "rings": "Yes",
+        "description": "The largest planet in the Solar System, a gas giant. Jupiter has the Great Red Spot, a giant storm larger than Earth, and a very strong magnetic field.",
+        "image": "jupiter.png", "threejs": { "size": 4, "color": "0xddbb99", "orbitRadius": 70, "speed": 0.008 },
+        "gravity": "24.79 m/s²", "mass": "1.8982 × 10^27 kg", "temperature": { "average": "-108 °C" }, "atmosphere": "90% H₂, 10% He", "discoverer": "Unknown (known since ancient times)"
+    },
+    {
+        "name": "Saturn", "radius": "58,232 km", "period": "29.46 years", "distance": "9.58 AU", "moons": "82+", "rings": "Yes",
+        "description": "Famous for its spectacular ring system, made up of billions of ice and rock particles. Saturn is also a gas giant, similar to Jupiter.",
+        "image": "saturn.png", "threejs": { "size": 3.5, "color": "0xddccaa", "orbitRadius": 90, "speed": 0.006 },
+        "gravity": "10.44 m/s²", "mass": "5.6834 × 10^26 kg", "temperature": { "average": "-139 °C" }, "atmosphere": "96% H₂, 3% He", "discoverer": "Unknown (known since ancient times)"
+    },
+    {
+        "name": "Uranus", "radius": "25,362 km", "period": "84.01 years", "distance": "19.20 AU", "moons": "27", "rings": "Yes",
+        "description": "A pale blue gas giant, due to the presence of methane in its atmosphere. Uranus has a faint ring system and rotates at a very large angle to the plane of its orbit.",
+        "image": "uranus.png", "threejs": { "size": 2, "color": "0x99bbff", "orbitRadius": 110, "speed": 0.004 },
+        "gravity": "8.69 m/s²", "mass": "8.6810 × 10^25 kg", "temperature": { "average": "-197 °C" }, "atmosphere": "83% H₂, 15% He, 2% CH₄", "discoverer": "William Herschel (1781)"
+    },
+    {
+        "name": "Neptune", "radius": "24,622 km", "period": "164.8 years", "distance": "30.05 AU", "moons": "14", "rings": "Yes",
+        "description": "The farthest planet in the Solar System, also a blue gas giant. Neptune has the strongest winds in the Solar System and a faint ring system.",
+        "image": "neptune.png", "threejs": { "size": 2, "color": "0x6688cc", "orbitRadius": 130, "speed": 0.003 },
+        "gravity": "11.15 m/s²", "mass": "1.02413 × 10^26 kg", "temperature": { "average": "-201 °C" },
+        "atmosphere": "80% H₂, 19% He, 1.5% CH₄", "discoverer": "Urbain Le Verrier, John Couch Adams, Johann Galle (1846)"
+    },
+    {
+        "name": "Moon", "radius": "1,737.1 km", "period": "27.3 days", "distance": "0.00257 AU (relative to Earth)", "moons": "0", "rings": "No",
+        "description": "Earth's only natural satellite. The Moon's surface is heavily cratered, with mountains and maria (dark areas).",
+        "image": "moon.png", "threejs": { "size": 0.4, "color": "0xcccccc", "orbitRadius": 5, "speed": 0.1 },
+        "gravity": "1.62 m/s²", "mass": "7.3477 × 10^22 kg", "temperature": { "min": "-233 °C", "max": "123 °C" },
+        "atmosphere": "Negligible", "discoverer": "Unknown (known since ancient times)", "parent": "Earth"
+    },
+    {
+        "name": "Asteroid Belt",
+        "description": "A belt containing countless small celestial bodies, mainly rock and metal, located between the orbits of Mars and Jupiter.",
+        "image": "asteroid_belt.png",
+        "threejs": { "orbitRadius": 60, "speed": 0.01, "numAsteroids": 200, "minSize": 0.1, "maxSize": 0.5, "color": "0x888888" },
+        "discoverer" : "No specific discoverer"
+    }
+]

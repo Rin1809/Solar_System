@@ -1,0 +1,232 @@
+[
+    {
+        "name": "Sao Thủy",
+        "radius": "2,439.7 km",
+        "period": "88 ngày",
+        "distance": "0.39 AU",
+        "moons": "0",
+        "rings": "Không",
+        "description": "Hành tinh nhỏ nhất và gần Mặt Trời nhất.  Bề mặt Sao Thủy có rất nhiều hố va chạm, tương tự như Mặt Trăng. Nó không có bầu khí quyển đáng kể để giữ nhiệt, do đó nhiệt độ bề mặt thay đổi rất lớn giữa ngày và đêm.",
+        "image": "mercury.png",
+        "threejs": {
+            "size": 0.8,
+            "color": "0xaaaaaa",
+            "orbitRadius": 20,
+            "speed": 0.04
+        },
+        "gravity": "3.7 m/s²",
+        "mass": "3.3011 × 10^23 kg",
+        "temperature": {
+            "min": "-173 °C",
+            "max": "427 °C"
+        },
+        "atmosphere": "Không đáng kể",
+        "discoverer": "Không rõ (biết từ thời cổ đại)"
+    },
+    {
+        "name": "Sao Kim",
+        "radius": "6,051.8 km",
+        "period": "225 ngày",
+        "distance": "0.72 AU",
+        "moons": "0",
+        "rings": "Không",
+        "description": "Hành tinh nóng nhất với bầu khí quyển dày đặc, chủ yếu là carbon dioxide, tạo ra hiệu ứng nhà kính cực mạnh. Bề mặt Sao Kim bị che khuất bởi những đám mây axit sulfuric dày đặc.",
+        "image": "venus.png",
+        "threejs": {
+            "size": 1.2,
+            "color": "0xbbbbbb",
+            "orbitRadius": 30,
+            "speed": 0.03
+        },
+        "gravity": "8.87 m/s²",
+        "mass": "4.8675 × 10^24 kg",
+        "temperature": {
+            "average": "464 °C"
+        },
+        "atmosphere": "96.5% CO₂, 3.5% N₂",
+        "discoverer": "Không rõ (biết từ thời cổ đại)"
+    },
+     {
+        "name": "Trái Đất",
+        "radius": "6,371 km",
+        "period": "365.25 ngày",
+        "distance": "1 AU",
+        "moons": "1",
+        "rings": "Không",
+        "description": "Hành tinh của chúng ta và là nơi duy nhất trong Hệ Mặt Trời được biết đến có sự sống. Trái Đất có bầu khí quyển đa dạng, đại dương nước lỏng và các mảng kiến tạo hoạt động.",
+        "image": "earth.png",
+        "threejs": {
+            "size": 1.4,
+            "color": "0x3366ff",
+            "orbitRadius": 40,
+            "speed": 0.02
+        },
+        "gravity": "9.81 m/s²",
+        "mass": "5.972 × 10^24 kg",
+        "temperature": {
+            "min": "-89.2 °C",
+            "max": "56.7 °C",
+            "average": "15 °C"
+        },
+        "atmosphere": "78% N₂, 21% O₂, 1% Khác",
+        "discoverer": "Không ai khám phá, là nhà của nhân loại"
+    },
+    {
+        "name": "Sao Hỏa",
+        "radius": "3,389.5 km",
+        "period": "687 ngày",
+        "distance": "1.52 AU",
+        "moons": "2",
+        "rings": "Không",
+        "description": "Được gọi là 'Hành tinh Đỏ' do oxit sắt trên bề mặt. Sao Hỏa có các đặc điểm địa hình đa dạng, bao gồm núi lửa, thung lũng, sa mạc và chỏm băng ở hai cực.  Có bằng chứng cho thấy Sao Hỏa từng có nước ở dạng lỏng.",
+        "image": "mars.png",
+        "threejs": {
+            "size": 1.0,
+            "color": "0xcc6600",
+            "orbitRadius": 50,
+            "speed": 0.015
+        },
+         "gravity": "3.71 m/s²",
+        "mass": "6.4171 × 10^23 kg",
+        "temperature": {
+            "min": "-140 °C",
+            "max": "20 °C",
+            "average": "-63 °C"
+        },
+        "atmosphere": "95% CO₂, 3% N₂, 1.6% Ar",
+        "discoverer": "Không rõ (biết từ thời cổ đại)"
+    },
+    {
+        "name": "Sao Mộc",
+        "radius": "69,911 km",
+        "period": "11.86 năm",
+        "distance": "5.20 AU",
+        "moons": "79+",
+        "rings": "Có",
+        "description": "Hành tinh lớn nhất trong Hệ Mặt Trời, là một hành tinh khí khổng lồ. Sao Mộc có Vết Đỏ Lớn, một cơn bão khổng lồ lớn hơn Trái Đất, và có từ trường rất mạnh.",
+        "image": "jupiter.png",
+        "threejs": {
+            "size": 4,
+            "color": "0xddbb99",
+            "orbitRadius": 70,
+            "speed": 0.008
+        },
+        "gravity": "24.79 m/s²",
+        "mass": "1.8982 × 10^27 kg",
+        "temperature": {
+          "average": "-108 °C"
+        },
+        "atmosphere": "90% H₂, 10% He",
+        "discoverer": "Không rõ (biết từ thời cổ đại)"
+
+    },
+    {
+        "name": "Sao Thổ",
+        "radius": "58,232 km",
+        "period": "29.46 năm",
+        "distance": "9.58 AU",
+        "moons": "82+",
+        "rings": "Có",
+        "description": "Nổi tiếng với hệ thống vành đai tuyệt đẹp, được tạo thành từ hàng tỷ hạt băng và đá.  Sao Thổ cũng là một hành tinh khí khổng lồ, tương tự như Sao Mộc.",
+        "image": "saturn.png",
+        "threejs": {
+            "size": 3.5,
+            "color": "0xddccaa",
+            "orbitRadius": 90,
+            "speed": 0.006
+        },
+        "gravity": "10.44 m/s²",
+        "mass": "5.6834 × 10^26 kg",
+        "temperature": {
+           "average": "-139 °C"
+        },
+        "atmosphere": "96% H₂, 3% He",
+        "discoverer": "Không rõ (biết từ thời cổ đại)"
+    },
+    {
+        "name": "Sao Thiên Vương",
+        "radius": "25,362 km",
+        "period": "84.01 năm",
+        "distance": "19.20 AU",
+        "moons": "27",
+        "rings": "Có",
+        "description": "Một hành tinh khí khổng lồ màu xanh lam nhạt, do sự hiện diện của metan trong khí quyển.  Sao Thiên Vương có một hệ thống vành đai mờ và quay nghiêng một góc rất lớn so với mặt phẳng quỹ đạo.",
+        "image": "uranus.png",
+        "threejs": {
+            "size": 2,
+            "color": "0x99bbff",
+            "orbitRadius": 110,
+            "speed": 0.004
+        },
+         "gravity": "8.69 m/s²",
+        "mass": "8.6810 × 10^25 kg",
+        "temperature": {
+           "average": "-197 °C"
+        },
+        "atmosphere": "83% H₂, 15% He, 2% CH₄",
+        "discoverer": "William Herschel (1781)"
+    },
+    {
+        "name": "Sao Hải Vương",
+        "radius": "24,622 km",
+        "period": "164.8 năm",
+        "distance": "30.05 AU",
+        "moons": "14",
+        "rings": "Có",
+        "description": "Hành tinh xa nhất trong Hệ Mặt Trời, cũng là một hành tinh khí khổng lồ màu xanh lam. Sao Hải Vương có gió mạnh nhất trong Hệ Mặt Trời và có một hệ thống vành đai mờ.",
+        "image": "neptune.png",
+        "threejs": {
+            "size": 2,
+            "color": "0x6688cc",
+            "orbitRadius": 130,
+            "speed": 0.003
+        },
+        "gravity": "11.15 m/s²",
+        "mass": "1.02413 × 10^26 kg",
+        "temperature": {
+           "average": "-201 °C"
+        },
+        "atmosphere": "80% H₂, 19% He, 1.5% CH₄",
+        "discoverer": "Urbain Le Verrier, John Couch Adams, Johann Galle (1846)"
+    },
+    
+    {
+        "name": "Mặt Trăng",
+        "radius": "1,737.1 km",
+        "period": "27.3 ngày",
+        "distance": "0.00257 AU (so với Trái Đất)", 
+        "moons": "0",
+        "rings": "Không",
+        "description": "Vệ tinh tự nhiên duy nhất của Trái Đất. Bề mặt Mặt Trăng có nhiều hố va chạm, núi và biển (vùng tối).",
+        "image": "moon.png",
+        "threejs": {
+            "size": 0.4,
+            "color": "0xcccccc",
+            "orbitRadius": 5, 
+            "speed": 0.1 
+        },
+        "gravity": "1.62 m/s²",
+        "mass": "7.3477 × 10^22 kg",
+        "temperature": {
+            "min": "-233 °C",
+            "max": "123 °C"
+        },
+        "atmosphere": "Không đáng kể",
+        "discoverer": "Không rõ (biết từ thời cổ đại)",
+        "parent": "Trái Đất"  
+    },
+    {
+        "name": "Vành đai tiểu hành tinh",
+        "description": "Vành đai chứa vô số các thiên thể nhỏ, chủ yếu là đá và kim loại, nằm giữa quỹ đạo của Sao Hỏa và Sao Mộc.",
+         "image": "asteroid_belt.png",
+        "threejs": {
+            "orbitRadius": 60, 
+            "speed": 0.01,
+            "numAsteroids": 200,
+            "minSize": 0.1,  
+            "maxSize": 0.5, 
+            "color": "0x888888"
+        },
+        "discoverer" : "Không có người khám phá cụ thể"
+    }
+]

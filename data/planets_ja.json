@@ -1,0 +1,90 @@
+[
+    {
+        "name": "水星", "radius": "2,439.7 km", "period": "88日", "distance": "0.39 AU", "moons": "0", "rings": "なし",
+        "description": "太陽に最も近く、最も小さい惑星です。水星の表面は月に似てクレーターが多く、熱を保持するための重要な大気がないため、表面温度は昼夜で大きく異なります。",
+        "image": "mercury.png", "threejs": { "size": 0.8, "color": "0xaaaaaa", "orbitRadius": 20, "speed": 0.04 },
+        "gravity": "3.7 m/s²", "mass": "3.3011 × 10^23 kg", "temperature": { "min": "-173 °C", "max": "427 °C" }, "atmosphere": "ごくわずか", "discoverer": "不明（古代から知られている）"
+    },
+    {
+        "name": "金星", "radius": "6,051.8 km", "period": "225日", "distance": "0.72 AU", "moons": "0", "rings": "なし",
+        "description": "主に二酸化炭素からなる濃密な大気を持つ最も高温の惑星で、極端な温室効果を生み出しています。金星の表面は厚い硫酸の雲で覆われています。",
+        "image": "venus.png", "threejs": { "size": 1.2, "color": "0xbbbbbb", "orbitRadius": 30, "speed": 0.03 },
+        "gravity": "8.87 m/s²", "mass": "4.8675 × 10^24 kg", "temperature": { "average": "464 °C" }, "atmosphere": "96.5% CO₂, 3.5% N₂", "discoverer": "不明（古代から知られている）"
+    },
+    {
+        "name": "地球", "radius": "6,371 km", "period": "365.25日", "distance": "1 AU", "moons": "1", "rings": "なし",
+        "description": "私たちの惑星であり、太陽系で生命が存在することが知られている唯一の場所です。地球は多様な大気、液体の水の海、活発なプレートテクトニクスを持っています。",
+        "image": "earth.png", "threejs": { "size": 1.4, "color": "0x3366ff", "orbitRadius": 40, "speed": 0.02 },
+        "gravity": "9.81 m/s²", "mass": "5.972 × 10^24 kg",
+        "temperature": { "min": "-89.2 °C", "max": "56.7 °C", "average": "15 °C" }, "atmosphere": "78% N₂, 21% O₂, 1% その他", "discoverer": "発見されず、人類の故郷"
+    },
+    {
+        "name": "火星", "radius": "3,389.5 km", "period": "687日", "distance": "1.52 AU", "moons": "2", "rings": "なし",
+        "description": "表面の酸化鉄のために「赤い惑星」として知られています。火星には火山、谷、砂漠、極地の氷冠など、多様な地形があります。火星にはかつて液体の水が存在していた証拠があります。",
+        "image": "mars.png", "threejs": { "size": 1.0, "color": "0xcc6600", "orbitRadius": 50, "speed": 0.015 },
+        "gravity": "3.71 m/s²", "mass": "6.4171 × 10^23 kg", "temperature": { "min": "-140 °C", "max": "20 °C", "average": "-63 °C" }, "atmosphere": "95% CO₂, 3% N₂, 1.6% Ar", "discoverer": "不明（古代から知られている）"
+    },
+    {
+        "name": "木星", "radius": "69,911 km", "period": "11.86年", "distance": "5.20 AU", "moons": "79+", "rings": "あり",
+        "description": "太陽系最大の惑星、ガス巨大惑星です。木星には地球よりも大きい巨大な嵐である大赤斑があり、非常に強い磁場を持っています。",
+        "image": "jupiter.png", "threejs": { "size": 4, "color": "0xddbb99", "orbitRadius": 70, "speed": 0.008 },
+        "gravity": "24.79 m/s²", "mass": "1.8982 × 10^27 kg", "temperature": { "average": "-108 °C" }, "atmosphere": "90% H₂, 10% He", "discoverer": "不明（古代から知られている）"
+    },
+    {
+        "name": "土星", "radius": "58,232 km", "period": "29.46年", "distance": "9.58 AU", "moons": "82+", "rings": "あり",
+        "description": "数十億個の氷と岩の粒子で構成された壮大な環システムで有名です。土星も木星に似たガス巨大惑星です。",
+        "image": "saturn.png", "threejs": { "size": 3.5, "color": "0xddccaa", "orbitRadius": 90, "speed": 0.006 },
+        "gravity": "10.44 m/s²", "mass": "5.6834 × 10^26 kg", "temperature": { "average": "-139 °C" }, "atmosphere": "96% H₂, 3% He", "discoverer": "不明（古代から知られている）"
+    },
+    {
+        "name": "天王星", "radius": "25,362 km", "period": "84.01年", "distance": "19.20 AU", "moons": "27", "rings": "あり",
+        "description": "大気中のメタンの存在により、淡い青色のガス巨大惑星です。天王星は薄い環システムを持ち、軌道面に対して非常に大きな角度で回転します。",
+        "image": "uranus.png", "threejs": { "size": 2, "color": "0x99bbff", "orbitRadius": 110, "speed": 0.004 },
+        "gravity": "8.69 m/s²", "mass": "8.6810 × 10^25 kg", "temperature": { "average": "-197 °C" }, "atmosphere": "83% H₂, 15% He, 2% CH₄", "discoverer": "ウィリアム・ハーシェル (1781)"
+    },
+    {
+        "name": "海王星", "radius": "24,622 km", "period": "164.8年", "distance": "30.05 AU", "moons": "14", "rings": "あり",
+        "description": "太陽系で最も遠い惑星であり、青いガス巨大惑星でもあります。海王星は太陽系で最も強い風と薄い環システムを持っています。",
+        "image": "neptune.png", "threejs": { "size": 2, "color": "0x6688cc", "orbitRadius": 130, "speed": 0.003 },
+        "gravity": "11.15 m/s²", "mass": "1.02413 × 10^26 kg", "temperature": { "average": "-201 °C" }, "atmosphere": "80% H₂, 19% He, 1.5% CH₄", "discoverer": "ユルバン・ルヴェリエ、ジョン・クーチ・アダムズ、ヨハン・ガレ (1846)"
+    },
+      {
+        "name": "月",
+        "radius": "1,737.1 km",
+        "period": "27.3日",
+        "distance": "0.00257 AU (地球に対して)",
+        "moons": "0",
+        "rings": "なし",
+        "description": "地球の唯一の天然衛星。月の表面には、山や海（暗い領域）があり、クレーターが多くあります。",
+        "image": "moon.png",
+        "threejs": {
+            "size": 0.4,
+            "color": "0xcccccc",
+            "orbitRadius": 5,
+            "speed": 0.1
+        },
+        "gravity": "1.62 m/s²",
+        "mass": "7.3477 × 10^22 kg",
+        "temperature": {
+            "min": "-233 °C",
+            "max": "123 °C"
+        },
+        "atmosphere": "ごくわずか",
+        "discoverer": "不明（古代から知られている）",
+        "parent": "地球"
+    },
+    {
+        "name": "小惑星帯",
+        "description": "火星と木星の軌道の間に位置する、主に岩石と金属からなる無数の小さな天体を含む帯。",
+        "image": "asteroid_belt.png",
+        "threejs": {
+            "orbitRadius": 60,
+            "speed": 0.01,
+            "numAsteroids": 200,
+            "minSize": 0.1,
+            "maxSize": 0.5,
+            "color": "0x888888"
+        },
+         "discoverer" : "特定の発見者はいない"
+    }
+]
